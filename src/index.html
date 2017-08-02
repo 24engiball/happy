@@ -38,8 +38,12 @@
 	<!-- fieldsets -->
 	<fieldset>
 		<h2 class="fs-title">เริ่ม</h2>
-  <p>คุณธีรวัฒน์ มธุรส 	</p>
-  <p>เลขบัตรประชาชน 1409900396205	</p>
+  <p><div id="fullname">
+    
+  </div></p>
+  <p><div id="cid">
+    
+  </div></p>
    <p>ทำการตรวจสุขภาพเบื้องต้น	</p>
    <div style="text-align:center">  
         <input type="checkbox" value="ok" style="text-align:center;width:30px" />ยินยอม
@@ -52,7 +56,7 @@
 		<h2 class="fs-title">ชั่งนํ้าหนัก</h2>
 		<h3 class="fs-subtitle">กรุณายืนบนเครื่องชั่ง</h3>
 
-    <h2 class="fs-subtitle">นํ้าหนักของคุณคือ 55 กก</h2>
+    <h2 class="fs-subtitle"><div id="divWeight" class="weightDiv"></div></h2>
     		<input type="button" name="previous" class="previous action-button" value="ก่อนหน้า" />
 
 		<input type="button" name="next" class="next action-button" value="ถัดไป" />
@@ -60,9 +64,13 @@
 	<fieldset>
     <h2 class="fs-title">วัดส่วนสูง</h2>
     		<h3 class="fs-subtitle">กรุณายืนตัวตรง</h3>
-      <h2 class="fs-subtitle">ส่วนสูงของคุณคือ 174</h2>
-        <h2 class="fs-subtitle">ค่า BMI ของคุณคือ 18</h2>
-        <h2 class="fs-subtitle">ผอมเกินไป</h2>
+      <h2 class="fs-subtitle"><div class="heightDiv"></div></h2>
+        <h2 class="fs-subtitle"><div class="bmiDiv">
+          
+        </div></h2>
+        <h2 class="fs-subtitle"><div class="bmiResultDiv">
+          
+        </div></h2>
     		<input type="button" name="previous" class="previous action-button" value="ก่อนหน้า" />
 
 		<input type="button" name="next" class="next action-button" value="ถัดไป" />
@@ -70,7 +78,9 @@
   	<fieldset>
 		<h2 class="fs-title">วัดความดัน</h2>
 		<h3 class="fs-subtitle">กรุณานั่งแล้วสอดแทนเข้าเครื่องวัดความดันตามภาพ</h3>
-		   <h2 class="fs-subtitle">ค่าความดันของคุณคือ 110/80</h2>
+		   <h2 class="fs-subtitle"><div class="pressureDiv">
+          
+        </div></h2>
 	    		<input type="button" name="previous" class="previous action-button" value="ก่อนหน้า" />
 
 		<input type="button" name="next" class="next action-button" value="ถัดไป" />
@@ -78,11 +88,18 @@
     	<fieldset>
 		<h2 class="fs-title">รับบัตรคิว</h2>
 		<h3 class="fs-subtitle">สรุปผล</h3>
-			<h2 class="fs-subtitle">นํ้าหนักของคุณคือ 55 กก</h2>
-	      <h2 class="fs-subtitle">ส่วนสูงของคุณคือ 174</h2>
-        <h2 class="fs-subtitle">ค่า BMI ของคุณคือ 18</h2>
-           <h2 class="fs-subtitle">ผอมเกินไป</h2>
-        	   <h2 class="fs-subtitle">ค่าความดันของคุณคือ 110/80</h2>
+			<h2 class="fs-subtitle"><div class="weightDiv">
+        
+      </div></h2>
+	      <h2 class="fs-subtitle"><div class="heightDiv">
+          
+        </div></h2>
+        <h2 class="fs-subtitle"><div class="pressureDiv">
+          
+        </div></h2>
+           <h2 class="fs-subtitle"><div class="bmiResultDiv">
+          
+        </div></h2>
 	    		<input type="button" name="previous" class="previous action-button" value="ก่อนหน้า" />
 		<input type="submit" name="submit" class="submit action-button" value="รับบัตรคิว" />
 	</fieldset>
@@ -103,7 +120,7 @@
 <script>
   require('./app.js');
     require('./readfile.js');
-
+ require('./cidreader.js');
 </script>
 <!--<script src="./control.js"></script>-->
 

@@ -9,14 +9,21 @@ var wpyPath = dirAsset+"wpy.py";
 var pFilepath = dirAsset+"pressure.txt";
 var ppyPath = dirAsset+"ppy.py";
 
-
+var pHeight=0;
+var pWeight=0;
 function execute(command, callback){
     exec(command, function(error, stdout, stderr){ callback(stdout); });
 };
+ module.exports = {
+
+ callCheck:()=>{
 pyHeight();
 pyWeight()
 pyPressure()
+}
+ }
 
+ 
   function readHeight(){
    fs.readFile(hFilepath, 'utf-8', (err, data) => {
         if(err){
@@ -26,6 +33,9 @@ pyPressure()
 
         // Change how to handle the file content
         console.log("The file content is : " + data);
+           $(".heightDiv").html("ส่วนสูงของคุณคือ " +data + " เซนติเมตร");
+           pHeight=data;
+            callBmi(pHeight,pWeight);
     });
   }
 
@@ -48,6 +58,9 @@ execute('python ' + hpyPath, function(output) {
 
         // Change how to handle the file content
         console.log("The file content is : " + data);
+       $("div.weightDiv").html("นํ้าหนักของคุณคือ " +data + " กก");
+       pWeight =data;
+      callBmi(pHeight,pWeight);
     });
   }
 
@@ -72,15 +85,27 @@ execute('python ' + wpyPath, function(output) {
 
         // Change how to handle the file content
         console.log("The file content is : " + data);
+           $(".pressureDiv").html("ค่าความดันของคุณคือ " +data + "");
     });
   }
 
 
 function pyPressure(){
-
 // call the function
 execute('python ' + ppyPath, function(output) {
     readPressure();
 });
 }
 
+
+function callBmi(pHeight,pWeight){
+    console.log(pHeight + " " +pWeight);
+    var bmi=0;
+    if(pHeight !=0 && pWeight !=0){
+bmi = pWeight/((pHeight*pHeight)/10000)
+
+ $(".bmiResultDiv").html("ค่า BMI ของคุณคือ " +bmi.toFixed(2) + "");
+    }
+
+
+}
