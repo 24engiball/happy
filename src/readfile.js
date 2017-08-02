@@ -15,7 +15,7 @@ function execute(command, callback) {
     exec(command, function (error, stdout, stderr) { callback(stdout); });
 };
 module.exports = {
-
+ canReload:false,
     callCheck: () => {
         pyHeight();
         pyWeight()
@@ -23,17 +23,7 @@ module.exports = {
     },
 
     onCardRemove: () => {
-        $(".heightDiv").html("");
-        $("div.weightDiv").html("");
-        $(".pressureDiv").html("");
-        $(".bmiResultDiv").html("");
-        $("#cid").html("")
-        $('#fullname').html("");
-     //   $("#progressbar li").removeClass("active");
-        $( ".previous" ).trigger( "click" );
-        $( ".previous" ).trigger( "click" );
-        $( ".previous" ).trigger( "click" );
-        $( ".previous" ).trigger( "click" );
+    location.reload() ;
 
     }
 

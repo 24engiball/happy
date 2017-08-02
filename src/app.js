@@ -4,8 +4,11 @@
 var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
+var step =0;;
+var countdown =5;
 
 $(".next").click(function(){
+	step++;
 	if(animating) return false;
 	animating = true;
 	
@@ -38,9 +41,22 @@ $(".next").click(function(){
 		//this comes from the custom easing plugin
 		easing: 'easeInOutBack'
 	});
+	console.log(countdown);
+	if(step==4){
+callCountdown();
+		
+	}
 });
+function callCountdown(){
+			setInterval(function() {
+   countdown--;
+   $("#countdownDiv").html(countdown);
+   if(countdown<1)location.reload();
+}, 1000);
+}
 
 $(".previous").click(function(){
+	step--
 	if(animating) return false;
 	animating = true;
 	

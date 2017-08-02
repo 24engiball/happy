@@ -23,6 +23,7 @@ var pathName = __dirname;
 var dirAsset = pathName + '/assets';
 const opn = require('opn');
 var readfile = require("./readfile.js");
+var canReload =false;
 
 //image encode base 64
 var encodeData = [];
@@ -136,6 +137,8 @@ devices.on('device-activated', event => {
     }
 
     device.on('card-inserted', event => {
+        canReload=true;
+        readfile.canReload=true;
         haveCard = true;
         mImgTemp = '';
         imgTemp = '';
@@ -175,7 +178,7 @@ devices.on('device-activated', event => {
 
     });
     device.on('card-removed', event => {
-        readfile.onCardRemove();
+      if(canReload)  readfile.onCardRemove();
         console.log(`Card removed from '${event.name}' `);
         //   tempImg = dir+'/blankimg.png';
 
