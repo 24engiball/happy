@@ -175,6 +175,7 @@ devices.on('device-activated', event => {
 
     });
     device.on('card-removed', event => {
+        readfile.onCardRemove();
         console.log(`Card removed from '${event.name}' `);
         //   tempImg = dir+'/blankimg.png';
 
