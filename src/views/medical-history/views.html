@@ -1,0 +1,66 @@
+<div class="container">
+    <!--<h2 class="text-center" id="his-header">medical-history</h2>-->
+    <button onclick="openBrowser()" id='bBrowser' data='xxxxx' class='btn btn-default pull-right' >Open</button>
+    <div id="iframes-container">
+        <!-- <iframe id="iframe" src="https://backend.thaicarecloud.org/ckd/emr/index?ptlink=428c342d07c98f59a7ea8cf62f430d69"></iframe> -->
+        <iframe id="iframe" src="https://backend.thaicarecloud.org/ckd/emr/index"></iframe>
+
+    </div>
+    <!--<div id="frame-right"></div>-->
+<script>
+    if(opn == null)
+  var opn = require('opn');
+
+    function openBrowser(){
+      opn('https://backend.thaicarecloud.org/ckd/emr/index?ptlink='+ $('#bBrowser').attr('data'));
+        
+    }
+    </script>
+
+</div>
+<style>
+    #frame-right{
+           width: 130px;
+            right: 1px;
+            top: 168px;
+            background: white;
+            position: fixed;
+            z-index: 100000;
+            height: 100%;
+            color: white;
+    }
+    #iframes-container {
+        width: 90%;
+        height: 600px;
+        background: white;
+        position: fixed;
+        top: 120px;
+    }
+    #iframe{
+        width: 100%;
+        height: 800px;
+        margin-top: -10px;
+        margin-left: -18px;
+    }
+ #his-header{
+    z-index: 10000;
+    background: white;
+    position: fixed;
+    margin-top: -18px;
+    width: 100%;
+    padding: 45px;
+}
+ul.nav.nav-tabs {
+    /* background: blue; */
+    position: fixed;
+    top: 20px;
+    z-index: 100000;
+    width:100%;
+    /* margin-top: 16px; */
+}
+
+#bBrowser{
+    color: white;
+    background-color: #005fab;
+}
+</style>

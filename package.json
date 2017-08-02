@@ -1,0 +1,38 @@
+{
+  "name": "app1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "startng": "tsc && concurrently \"npm run tsc:w\" \"electron .\" ",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
+    "linux": "electron-packager . --asar --platform=linux --arch=x64",
+    "win": "electron-packager . app1  --platform=win32 --arch=ia32",
+    "win64": "electron-packager . app1  --platform=win32 --arch=x64",
+    "mac": "electron-packager . app1 --platformno=darwin --arch=x64 --icon=src/assets/icons/mac/icon.icns ",
+    "build-all": "electron-packager . app1 --platform=all --arch=x64 --version=0.36.7 --out=build --ignore='(build|node_modules)' --overwrite",
+    "winx64": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --icon=src/assets/icons/win/icon.ico --prune=true --out=out --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"CID Easy\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "legacy-encoding": "^3.0.0",
+    "md5": "^2.2.1",
+    "opn": "^5.1.0"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "electron": "^1.6.11",
+    "electron-builder": "^19.16.0"
+  },
+  "build": {
+    "appId": "com.engiball.ejclone",
+    "mac": {
+      "category": "app"
+    }
+  }
+}
